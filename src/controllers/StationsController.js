@@ -18,6 +18,10 @@ module.exports = {
 
     const temperaturaJsonEncoded = await redisIo.get("temperatures");
 
-    return res.json(JSON.parse(temperaturaJsonEncoded));
+    const responseApi = {
+      "temperatura": JSON.parse(temperaturaJsonEncoded)
+    };
+
+    return res.json(responseApi);
   }
 };
