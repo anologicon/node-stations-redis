@@ -8,4 +8,14 @@ It's a API to persist all returns from API on REDIS . When the API (Stations API
 
 - ioRedis version 4.15 or above [Ioredis](https://github.com/luin/ioredis)
 
+- yarn  version 1.21 or above [Yarn](https://yarnpkg.com/lang/en/)
+
 Only 😎.
+
+## First run
+
+`yarn install`
+
+## Star dev server
+
+`yarn dev`
