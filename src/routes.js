@@ -7,7 +7,7 @@ routes.get("/", (req, res) => {
   return res.send("Hello World");
 });
 
-routes.post("/stations", StationsController.post);
-routes.get("/stations", StationsController.get);
+routes.post("/stations/:idStation", StationsController.post);
+routes.get("/stations/:idStation", StationsController.get);
 
 module.exports = routes;
