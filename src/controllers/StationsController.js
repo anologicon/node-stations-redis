@@ -9,7 +9,9 @@ module.exports = {
    * @param {*} res 
    */
   async post(req, res) {
-    
+
+    console.log('Salvando o Json');
+
     const redisIo = new Redis();
 
     const { idStation } = req.params;
@@ -18,9 +20,9 @@ module.exports = {
 
     const jsonEncoded = JSON.stringify(temperatures);
 
-    const keyStationsRedi = "temperatures-" + idStation;
+    const keyStationsRedis = "temperatures-" + idStation;
 
-    const response = await redisIo.set(keyStationsRedi, jsonEncoded);
+    const response = await redisIo.set(keyStationsRedis, jsonEncoded);
 
     return res.json(response);
   },
@@ -35,11 +37,13 @@ module.exports = {
 
     const redisIo = new Redis();    
 
+    console.log('Recuperando o Json');
+
     const { idStation } = req.params;
 
-    const keyStationsRedi = "temperatures-" + idStation;
+    const keyStationsRedis = "temperatures-" + idStation;
 
-    const temperaturaJsonEncoded = await redisIo.get(keyStationsRedi);
+    const temperaturaJsonEncoded = await redisIo.get(keyStationsRedis);
 
     const responseApi = {
       "temperatura": JSON.parse(temperaturaJsonEncoded)
